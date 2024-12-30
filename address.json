@@ -1,0 +1,14 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://raw.githubusercontent.com/harshitha090/example-schemas/main/address.json",
+    "type": "object",
+    "properties": {
+        "street": {"type": "string", "minLength": 1},
+        "city": {"type": "string", "minLength": 1},
+        "state": {"type": "string", "minLength": 1},
+        "postalCode": {"type": "string", "minLength": 5},
+        "country": {"type": "string", "minLength": 1}
+    },
+    "required": ["street", "city", "state", "postalCode", "country"],
+    "additionalProperties": false
+}
