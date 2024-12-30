@@ -1,0 +1,26 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://raw.githubusercontent.com/harshitha090/example-schemas/main/draft7.json",
+    "type": "object",
+    "properties": {
+        "username": {"type": "string", "minLength": 3, "maxLength": 30},
+        "email": {"type": "string", "format": "email"},
+        "password": {"type": "string", "minLength": 8},
+        "age": {"$ref": "#/definitions/age"},
+        "score": {"$ref": "#/definitions/float"}
+    },
+    "required": ["username", "email", "password"],
+    "additionalProperties": false,
+    "definitions": {
+        "age": {
+            "type": "integer",
+            "minimum": 18,
+            "maximum": 99
+        },
+        "float": {
+            "type": "number",
+            "minimum": 0.0,
+            "maximum": 100.0
+        }
+    }
+}
