@@ -1,0 +1,32 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://raw.githubusercontent.com/harshitha090/example-schemas/main/user.json",
+    "type": "object",
+    "properties": {
+        "profile": {
+            "type": "object",
+            "properties": {
+                "name": {"type": "string", "minLength": 3},
+                "age": {"$ref": "#/definitions/age"},
+                "balance": {"$ref": "#/definitions/float"}
+            },
+            "required": ["name", "age"]
+        },
+        "address": {
+            "$ref": "https://raw.githubusercontent.com/harshitha090/example-schemas/main/address.json"
+        },
+        "rating": {"type": "number", "minimum": 0.0, "maximum": 5.0}
+    },
+    "required": ["profile", "address"],
+    "definitions": {
+        "float": {
+            "type": "number",
+            "minimum": 0.0
+        },
+        "age": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 150
+        }
+    }
+}
