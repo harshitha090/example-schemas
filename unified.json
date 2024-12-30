@@ -1,0 +1,138 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/harshitha090/example-schemas/main/unified.json",
+  "type": "object",
+  "properties": {
+    "userData": {
+      "type": "object",
+      "properties": {
+        "username": {"type": "string", "minLength": 3, "maxLength": 30},
+        "email": {"type": "string", "format": "email"},
+        "password": {"type": "string", "minLength": 8},
+        "age": {"$ref": "#/definitions/age"},
+        "score": {"$ref": "#/definitions/float"}
+      },
+      "required": ["username", "email", "password"],
+      "additionalProperties": false
+    },
+    "systemData": {
+      "type": "object",
+      "properties": {
+        "systemName": {"type": "string", "minLength": 1},
+        "systemId": {"$ref": "#/definitions/long"},
+        "loadCapacity": {"$ref": "#/definitions/float"},
+        "components": {
+          "type": "array",
+          "items": {"type": "string"},
+          "minItems": 1
+        },
+        "efficiency": {"$ref": "#/definitions/float"}
+      },
+      "required": ["systemName", "systemId", "loadCapacity"],
+      "additionalProperties": false
+    },
+    "userProfile": {
+      "type": "object",
+      "properties": {
+        "profile": {
+          "type": "object",
+          "properties": {
+            "name": {"type": "string", "minLength": 3},
+            "age": {"$ref": "#/definitions/age"},
+            "balance": {"$ref": "#/definitions/double"}
+          },
+          "required": ["name", "age"]
+        },
+        "address": {
+          "type": "object",
+          "properties": {
+            "street": {"type": "string"},
+            "city": {"type": "string"},
+            "state": {"type": "string"},
+            "postalCode": {"type": "string"},
+            "country": {"type": "string"}
+          },
+          "required": ["street", "city", "state", "postalCode", "country"]
+        },
+        "rating": {"$ref": "#/definitions/float"}
+      },
+      "required": ["profile", "address"]
+    }
+  },
+  "definitions": {
+    "float": {
+      "type": "number",
+      "not": {"type": "integer"},
+      "description": "A floating-point number (not an integer).",
+      "anyOf": [
+        {
+          "properties": {
+            "programmingLanguage": {"const": "Python"}
+          },
+          "minimum": -1.7976931348623157e308,
+          "maximum": 1.7976931348623157e308,
+          "description": "A double-precision floating-point number for Python."
+        },
+        {
+          "properties": {
+            "programmingLanguage": {"const": "Java"}
+          },
+          "minimum": -1.7976931348623157e308,
+          "maximum": 1.7976931348623157e308,
+          "description": "A double-precision floating-point number for Java."
+        }
+      ]
+    },
+    "double": {
+      "type": "number",
+      "not": {"type": "integer"},
+      "description": "A double-precision floating-point number.",
+      "anyOf": [
+        {
+          "properties": {
+            "programmingLanguage": {"const": "Python"}
+          },
+          "minimum": -1.7976931348623157e308,
+          "maximum": 1.7976931348623157e308,
+          "description": "A double-precision floating-point number for Python."
+        },
+        {
+          "properties": {
+            "programmingLanguage": {"const": "Java"}
+          },
+          "minimum": -1.7976931348623157e308,
+          "maximum": 1.7976931348623157e308,
+          "description": "A double-precision floating-point number for Java."
+        }
+      ]
+    },
+    "long": {
+      "type": "integer",
+      "description": "A long integer type.",
+      "anyOf": [
+        {
+          "properties": {
+            "programmingLanguage": {"const": "Python"}
+          },
+          "minimum": -9223372036854775808,
+          "maximum": 9223372036854775807,
+          "description": "A 64-bit integer for Python."
+        },
+        {
+          "properties": {
+            "programmingLanguage": {"const": "Java"}
+          },
+          "minimum": -9223372036854775808,
+          "maximum": 9223372036854775807,
+          "description": "A 64-bit integer for Java."
+        }
+      ]
+    },
+    "age": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 150,
+      "description": "An age value between 0 and 150."
+    }
+  }
+}
