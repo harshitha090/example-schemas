@@ -1,0 +1,148 @@
+from jsonschema import validate, RefResolver
+
+schema_draft7 = {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "http://example-network.com/draft7/schema",
+    "type": "object",
+    "properties": {
+        "username": {"type": "string", "minLength": 3, "maxLength": 30},
+        "email": {"type": "string", "format": "email"},
+        "password": {"type": "string", "minLength": 8},
+        "age": {"$ref": "#/definitions/age"},
+        "score": {"$ref": "#/definitions/float"}
+    },
+    "required": ["username", "email", "password"],
+    "additionalProperties": False,
+    "definitions": {
+        "age": {
+            "type": "integer",
+            "minimum": 18,
+            "maximum": 99
+        },
+        "float": {
+            "type": "number",
+            "minimum": 0.0,
+            "maximum": 100.0
+        }
+    }
+}
+
+
+system_defined_schema = {
+    "$schema": "http://example-network.com/system-defined-schema#",
+    "$id": "http://example-network.com/system-defined/schema",
+    "type": "object",
+    "properties": {
+        "systemName": {"type": "string", "minLength": 1},
+        "systemId": {"type": "integer", "minimum": 1},
+        "loadCapacity": {"$ref": "#/definitions/float"},
+        "components": {
+            "type": "array",
+            "items": {"type": "string"},
+            "minItems": 1
+        },
+        "efficiency": {"$ref": "#/definitions/float"}
+    },
+    "required": ["systemName", "systemId", "loadCapacity"],
+    "additionalProperties": False,
+    "definitions": {
+        "float": {
+            "type": "number",
+            "minimum": 0.1
+        }
+    }
+}
+
+# User Defined Schema with custom types
+user_defined_schema = {
+    "$schema": "http://example-network.com/user-defined-schema#",
+    "$id": "http://example-network.com/user-defined/schema",
+    "type": "object",
+    "properties": {
+        "profile": {
+            "type": "object",
+            "properties": {
+                "name": {"type": "string", "minLength": 3},
+                "age": {"$ref": "#/definitions/age"},
+                "balance": {"$ref": "#/definitions/float"}
+            },
+            "required": ["name", "age"]
+        },
+        "address": {"$ref": "http://example-domain.com/user-defined/address"},
+        "rating": {"type": "number", "minimum": 0.0, "maximum": 5.0}
+    },
+    "required": ["profile", "address"],
+    "definitions": {
+        "address": {
+            "$id": "http://example-domain.com/user-defined/address",
+            "type": "object",
+            "properties": {
+                "street": {"type": "string", "minLength": 1},
+                "city": {"type": "string", "minLength": 1},
+                "state": {"type": "string", "minLength": 1},
+                "postalCode": {"type": "string", "minLength": 5},
+                "country": {"type": "string", "minLength": 1}
+            },
+            "required": ["street", "city", "state", "postalCode", "country"],
+            "additionalProperties": False
+        },
+        "float": {
+            "type": "number",
+            "minimum": 0.0,
+                   },
+        "age": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 150
+        }
+    }
+}
+
+
+# Example data for each schema
+data_draft7 = {
+    "username": "harshitha",
+    "email": "harshitha@example.com",
+    "password": "mypassword123",
+    "age": 24,
+    "score": 88.5
+}
+
+data_system_defined = {
+    "systemName": "Cooling System",
+    "systemId": 123,
+    "loadCapacity": 2.5,
+    "components": ["Fan", "Compressor", "Condenser"],
+    "efficiency": 0.85
+}
+
+data_user_defined = {
+    "profile": {
+        "name": "John Doe",
+        "age": 35,
+        "balance": 1200.75
+    },
+    "address": {
+        "street": "456 Elm Street",
+        "city": "Metropolis",
+        "state": "NY",
+        "postalCode": "10101",
+        "country": "USA"
+    },
+    "rating": 4.5
+}
+
+# Resolver for LAN network
+resolver_draft7 = RefResolver.from_schema(schema_draft7)
+resolver_system = RefResolver.from_schema(system_defined_schema)
+resolver_user = RefResolver.from_schema(user_defined_schema)
+
+# Validate data against schemas
+validate(instance=data_draft7, schema=schema_draft7, resolver=resolver_draft7)
+print("Draft 7 schema validation successful!")
+
+validate(instance=data_system_defined, schema=system_defined_schema, resolver=resolver_system)
+print("System defined schema validation successful!")
+
+validate(instance=data_user_defined, schema=user_defined_schema, resolver=resolver_user)
+print("User defined schema validation successful!")
