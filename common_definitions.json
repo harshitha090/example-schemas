@@ -6,9 +6,7 @@
       "format": "float",
       "minimum": -3.4e38,
       "maximum": 3.4e38,
-      "not": {
-        "type": "integer"
-      }
+      "pattern": "^.*\\..*$"  
     },
     "double": {
       "type": "number",
@@ -39,4 +37,3 @@
     }
   }
 }
-
