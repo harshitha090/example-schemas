@@ -1,11 +1,11 @@
-{
+{{
   "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "number",
   "format": "float",
   "minimum": -3.4e38,
   "maximum": 3.4e38,
-  "pattern": ".*\\..*",
   "not": {
     "type": "integer"
   },
-  }
+  "pattern": ".*\\..*" 
+}
