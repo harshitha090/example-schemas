@@ -86,9 +86,16 @@
     }
   },
   "properties": {
-    "draft7": { "$ref": "#/definitions/draft7" },
-    "system": { "$ref": "#/definitions/system" },
-    "user": { "$ref": "#/definitions/user" }
+    "draft7": {
+    "$ref": "https://raw.githubusercontent.com/harshitha090/example-schemas/main/draft7.json"
+},
+"system": {
+    "$ref": "https://raw.githubusercontent.com/harshitha090/example-schemas/main/system.json"
+},
+"user": {
+    "$ref": "https://raw.githubusercontent.com/harshitha090/example-schemas/main/user.json"
+}
+
   },
   "required": ["draft7", "system", "user"]
 }
