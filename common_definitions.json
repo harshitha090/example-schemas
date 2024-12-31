@@ -8,8 +8,7 @@
       "maximum": 3.4e38,
       "not": {
         "type": "integer"
-      },
-      "pattern": ".*\\..*"
+      }
     },
     "double": {
       "type": "number",
@@ -24,11 +23,11 @@
     "address": {
       "type": "object",
       "properties": {
-        "street": {"type": "string", "minLength": 1},
-        "city": {"type": "string", "minLength": 1},
-        "state": {"type": "string", "minLength": 1},
-        "postalCode": {"type": "string", "minLength": 5},
-        "country": {"type": "string", "minLength": 1}
+        "street": { "type": "string", "minLength": 1 },
+        "city": { "type": "string", "minLength": 1 },
+        "state": { "type": "string", "minLength": 1 },
+        "postalCode": { "type": "string", "minLength": 5 },
+        "country": { "type": "string", "minLength": 1 }
       },
       "required": ["street", "city", "state", "postalCode", "country"],
       "additionalProperties": false
@@ -40,3 +39,4 @@
     }
   }
 }
+
