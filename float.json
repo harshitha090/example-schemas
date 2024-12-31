@@ -2,6 +2,6 @@
     "$schema": "http://json-schema.org/draft-07/schema#",
     "$id": "https://raw.githubusercontent.com/harshitha090/example-schemas/main/float.json",
     "type": "number",
-    "minimum": 0.0,
-    "maximum": 100.0
+    "minimum": -3.4e38,
+    "maximum": 3.4e38
 }
