@@ -4,8 +4,8 @@
   "format": "float",
   "minimum": -3.4e38,
   "maximum": 3.4e38,
+  "pattern": ".*\\..*",
   "not": {
     "type": "integer"
   },
-  "pattern": ".*\\..*"
-}
+  }
