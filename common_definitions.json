@@ -6,7 +6,9 @@
       "format": "float",
       "minimum": -3.4e38,
       "maximum": 3.4e38,
-      "pattern": "^.*\\..*$"  
+      "exclusiveMinimum": true,
+      "exclusiveMaximum": true,
+      "multipleOf": 0.01
     },
     "double": {
       "type": "number",
