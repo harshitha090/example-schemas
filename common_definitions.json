@@ -4,9 +4,9 @@
     "float": {
       "type": "number",
       "format": "float",
-      "minimum": -3.4e+38,
-      "maximum": 3.4e+38,
-      "multipleOf": 0.01
+      "minimum": -3.4e38,
+      "maximum": 3.4e38,
+      "pattern": "^[+-]?([0-9]*[.])?[0-9]+$"
     },
     "double": {
       "type": "number",
@@ -37,4 +37,3 @@
     }
   }
 }
-
