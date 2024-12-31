@@ -1,16 +1,15 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "definitions": {
-    {
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "float" :{
-    "type": "number",
-    "format": "float",
-    "minimum": -3.4e38,
-    "maximum": 3.4e38,
-    "not": {
+    "float": {
+      "type": "number",
+      "format": "float",
+      "minimum": -3.4e38,
+      "maximum": 3.4e38,
+      "not": {
         "type": "integer"
-    }},
+      }
+    },
     "double": {
       "type": "number",
       "minimum": -1.7e308,
