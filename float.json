@@ -3,5 +3,7 @@
     "$id": "https://raw.githubusercontent.com/harshitha090/example-schemas/main/float.json",
     "type": "number",
     "minimum": -3.4e38,
-    "maximum": 3.4e38
+    "maximum": 3.4e38,
+    "pattern": "^-?\\d+\\.\\d+$"
 }
+
