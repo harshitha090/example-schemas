@@ -4,10 +4,8 @@
     "float": {
       "type": "number",
       "format": "float",
-      "minimum": -3.4e38,
-      "maximum": 3.4e38,
-      "exclusiveMinimum": true,
-      "exclusiveMaximum": true,
+      "minimum": -3.4e+38,
+      "maximum": 3.4e+38,
       "multipleOf": 0.01
     },
     "double": {
