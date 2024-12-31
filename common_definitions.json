@@ -3,7 +3,6 @@
   "definitions": {
     "float": {
       "type": "number",
-      "format": "float",
       "minimum": -3.4e38,
       "maximum": 3.4e38,
       "pattern": "^.*\\..*$"  
