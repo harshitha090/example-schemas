@@ -4,6 +4,7 @@
     "type": "number",
     "minimum": -3.4e38,
     "maximum": 3.4e38,
-    "pattern": "^-?\\d+\\.\\d+$"
+    "not": {
+        "type": "integer"
+    }
 }
-
