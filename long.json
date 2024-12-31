@@ -2,5 +2,6 @@
     "$schema": "http://json-schema.org/draft-07/schema#",
     "$id": "https://raw.githubusercontent.com/harshitha090/example-schemas/main/long.json",
     "type": "integer",
-    "minimum": 1
+    "minimum": -9223372036854775808,
+    "maximum":9223372036854775807
 }
