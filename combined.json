@@ -1,34 +1,17 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://raw.githubusercontent.com/harshitha090/example-schemas/main/combined.json",
-  "type": "object",
   "definitions": {
-    "float": {
-      "$id": "https://raw.githubusercontent.com/harshitha090/example-schemas/main/float.json",
-      "type": "number",
-      "minimum": -3.4028235e+38,
-      "maximum": 3.4028235e+38
-    },
     "age": {
-      "$id": "https://raw.githubusercontent.com/harshitha090/example-schemas/main/age.json",
       "type": "integer",
       "minimum": 18,
       "maximum": 99
     },
-    "double": {
-      "$id": "https://raw.githubusercontent.com/harshitha090/example-schemas/main/double.json",
+    "float": {
       "type": "number",
-      "minimum": -1.7976931348623157e+308,
-      "maximum": 1.7976931348623157e+308
-    },
-    "long": {
-      "$id": "https://raw.githubusercontent.com/harshitha090/example-schemas/main/long.json",
-      "type": "integer",
-      "minimum": -9223372036854775808,
-      "maximum": 9223372036854775807
+      "minimum": -3.4028235e+38,
+      "maximum": 3.4028235e+38
     },
     "address": {
-      "$id": "https://raw.githubusercontent.com/harshitha090/example-schemas/main/address.json",
       "type": "object",
       "properties": {
         "street": { "type": "string" },
@@ -39,63 +22,63 @@
       },
       "required": ["street", "city", "state", "postalCode", "country"]
     },
+    "user_profile": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "minLength": 3 },
+        "age": { "$ref": "#/definitions/age" },
+        "balance": { "$ref": "#/definitions/float" }
+      },
+      "required": ["name", "age"]
+    },
+    "system": {
+      "type": "object",
+      "properties": {
+        "machine_name": { "type": "string", "minLength": 1 },
+        "systemId": { "type": "integer", "minimum": 1 },
+        "loadCapacity": { "$ref": "#/definitions/float" },
+        "components": {
+          "type": "array",
+          "items": { "type": "string" },
+          "minItems": 1
+        },
+        "efficiency": { "$ref": "#/definitions/float" }
+      },
+      "required": ["machine_name", "systemId", "loadCapacity"],
+      "additionalProperties": false
+    },
+    "user": {
+      "type": "object",
+      "properties": {
+        "profile": { "$ref": "#/definitions/user_profile" },
+        "address": { "$ref": "#/definitions/address" },
+        "rating": { "type": "number", "minimum": 0.0, "maximum": 5.0 }
+      },
+      "required": ["profile", "address"]
+    },
     "draft7": {
       "type": "object",
       "properties": {
         "username": { "type": "string", "minLength": 3, "maxLength": 30 },
         "email": { "type": "string", "format": "email" },
         "password": { "type": "string", "minLength": 8 },
-        "age": { "$ref": "https://raw.githubusercontent.com/harshitha090/example-schemas/main/age.json" },
-        "score": { "$ref": "https://raw.githubusercontent.com/harshitha090/example-schemas/main/float.json" }
+        "age": { "$ref": "#/definitions/age" },
+        "score": { "$ref": "#/definitions/float" }
       },
       "required": ["username", "email", "password"],
       "additionalProperties": false
-    },
-    "system": {
-      "type": "object",
-      "properties": {
-        "systemName": { "type": "string", "minLength": 1 },
-        "systemId": { "type": "integer", "minimum": 1 },
-        "loadCapacity": { "$ref": "https://raw.githubusercontent.com/harshitha090/example-schemas/main/float.json" },
-        "components": {
-          "type": "array",
-          "items": { "type": "string" },
-          "minItems": 1
-        },
-        "efficiency": { "$ref": "https://raw.githubusercontent.com/harshitha090/example-schemas/main/float.json" }
-      },
-      "required": ["systemName", "systemId", "loadCapacity"],
-      "additionalProperties": false
-    },
-    "user": {
-      "type": "object",
-      "properties": {
-        "profile": {
-          "type": "object",
-          "properties": {
-            "name": { "type": "string", "minLength": 3 },
-            "age": { "$ref": "https://raw.githubusercontent.com/harshitha090/example-schemas/main/age.json" },
-            "balance": { "$ref": "https://raw.githubusercontent.com/harshitha090/example-schemas/main/float.json" }
-          },
-          "required": ["name", "age"]
-        },
-        "address": { "$ref": "https://raw.githubusercontent.com/harshitha090/example-schemas/main/address.json" },
-        "rating": { "type": "number", "minimum": 0.0, "maximum": 5.0 }
-      },
-      "required": ["profile", "address"]
     }
   },
   "properties": {
     "draft7": {
-      "$ref": "https://raw.githubusercontent.com/harshitha090/example-schemas/main/draft7.json"
+      "$ref": "#/definitions/draft7"
     },
     "system": {
-      "$ref": "https://raw.githubusercontent.com/harshitha090/example-schemas/main/system.json"
+      "$ref": "#/definitions/system"
     },
     "user": {
-      "$ref": "https://raw.githubusercontent.com/harshitha090/example-schemas/main/user.json"
+      "$ref": "#/definitions/user"
     }
   },
   "required": ["draft7", "system", "user"]
 }
-
