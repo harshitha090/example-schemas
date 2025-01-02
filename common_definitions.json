@@ -5,7 +5,12 @@
     "properties": {
         "age": {"type": "integer", "minimum": 0},
         "score": {"type": "number"},
-        "balance": {"type": "number"},
+        "balance": {
+            "type": "number",
+            "format": "float",  // Explicitly defines it as a float
+            "minimum": 0.01,
+            "pattern": "^\\d*\\.\\d+$"  // Ensures the value is a float
+        },
         "address": {
             "type": "object",
             "properties": {
@@ -19,7 +24,22 @@
         },
         "float": {
             "type": "number",
-            "format": "float"
+            "format": "float",
+            "minimum": -3.4e38,
+            "maximum": 3.4e38,
+            "pattern": "^\\d*\\.\\d+$"
+        },
+        "double": {
+            "type": "number",
+            "format": "double",
+            "minimum": -1.7e308,
+            "maximum": 1.7e308,
+            "pattern": "^\\d*\\.\\d+$"
+        },
+        "long": {
+            "type": "integer",
+            "minimum": -9223372036854775808,
+            "maximum": 9223372036854775807
         }
     },
     "required": ["age", "score", "balance", "address"]
