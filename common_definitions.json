@@ -3,7 +3,10 @@ common_definitions_schema = {
     "$id": "https://raw.githubusercontent.com/harshitha090/example-schemas/main/common_definitions.json",
     "type": "object",
     "properties": {
-        "age": {"type": "integer", "minimum": 0,"maximum":120},
+        "age": {
+            "type": "integer",
+            "minimum": 0
+        },
         "address": {
             "type": "object",
             "properties": {
@@ -19,13 +22,13 @@ common_definitions_schema = {
             "type": "number",
             "minimum": -3.4e38,
             "maximum": 3.4e38,
-            "not": {"type": "integer"}
+            "pattern": "^-?\\d+\\.\\d+$"  # Ensures only decimals
         },
         "double": {
             "type": "number",
             "minimum": -1.7e308,
             "maximum": 1.7e308,
-            "not": {"type": "integer"}
+            "pattern": "^-?\\d+\\.\\d+$"  # Ensures only decimals
         },
         "long": {
             "type": "integer",
