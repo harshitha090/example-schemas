@@ -31,6 +31,7 @@
         },
         "float": {
     "type": "number",
+    "not":"integer",
     "exclusiveMinimum": -3.4e38,
     "exclusiveMaximum": 3.4e38,
     "pattern": "^-?\\d*\\.\\d+$"
