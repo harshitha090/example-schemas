@@ -33,7 +33,8 @@
             "type": "number",
             "minimum": -3.4e38,
             "maximum": 3.4e38,
-            "pattern": "^-?\\d*\\.\\d+$"  
+            "pattern": "^-?\\d*\\.\\d+$",
+            "multipleOf":0.1
         },
         "double": {
             "type": "number",
