@@ -1,20 +1,31 @@
-common_definitions_schema = {
+{
     "$schema": "http://json-schema.org/draft-07/schema#",
     "$id": "https://raw.githubusercontent.com/harshitha090/example-schemas/main/common_definitions.json",
     "type": "object",
     "properties": {
         "age": {
             "type": "integer",
-            "minimum": 0
+            "minimum": 0,
+            "maximum":120
         },
         "address": {
             "type": "object",
             "properties": {
-                "street": {"type": "string"},
-                "city": {"type": "string"},
-                "state": {"type": "string"},
-                "postalCode": {"type": "string"},
-                "country": {"type": "string"}
+                "street": {
+                    "type": "string"
+                },
+                "city": {
+                    "type": "string"
+                },
+                "state": {
+                    "type": "string"
+                },
+                "postalCode": {
+                    "type": "string"
+                },
+                "country": {
+                    "type": "string"
+                }
             },
             "required": ["street", "city", "state", "postalCode", "country"]
         },
@@ -22,13 +33,13 @@ common_definitions_schema = {
             "type": "number",
             "minimum": -3.4e38,
             "maximum": 3.4e38,
-            "pattern": "^-?\\d+\\.\\d+$" 
+            "pattern": "^-?\\d*\\.\\d+$"  
         },
         "double": {
             "type": "number",
             "minimum": -1.7e308,
             "maximum": 1.7e308,
-            "pattern": "^-?\\d+\\.\\d+$"  
+            "pattern": "^-?\\d*\\.\\d+$"  
         },
         "long": {
             "type": "integer",
