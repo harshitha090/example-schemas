@@ -3,22 +3,28 @@
     "$id": "https://raw.githubusercontent.com/harshitha090/example-schemas/main/common_definitions.json",
     "type": "object",
     "properties": {
-        "age": {"type": "integer", "minimum": 0},
-        "score": {"type": "number"},
-        "balance": {
-            "type": "number",
-            "format": "float",  // Explicitly defines it as a float
-            "minimum": 0.01,
-            "pattern": "^\\d*\\.\\d+$"  // Ensures the value is a float
+        "age": {
+            "type": "integer",
+            "minimum": 0
         },
         "address": {
             "type": "object",
             "properties": {
-                "street": {"type": "string"},
-                "city": {"type": "string"},
-                "state": {"type": "string"},
-                "postalCode": {"type": "string"},
-                "country": {"type": "string"}
+                "street": {
+                    "type": "string"
+                },
+                "city": {
+                    "type": "string"
+                },
+                "state": {
+                    "type": "string"
+                },
+                "postalCode": {
+                    "type": "string"
+                },
+                "country": {
+                    "type": "string"
+                }
             },
             "required": ["street", "city", "state", "postalCode", "country"]
         },
@@ -41,6 +47,5 @@
             "minimum": -9223372036854775808,
             "maximum": 9223372036854775807
         }
-    },
-    "required": ["age", "score", "balance", "address"]
+    }
 }
