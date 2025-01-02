@@ -7,26 +7,14 @@
             "type": "object",
             "properties": {
                 "name": {"type": "string", "minLength": 3},
-                "age": {"$ref": "#/definitions/age"},
-                "balance": {"$ref": "#/definitions/float"}
+                "age": {"$ref": "https://raw.githubusercontent.com/harshitha090/example-schemas/main/common_definitions.json#/properties/age"},
+                "balance": {"$ref": "https://raw.githubusercontent.com/harshitha090/example-schemas/main/common_definitions.json#/properties/balance"}
             },
             "required": ["name", "age"]
         },
-        "address": {
-            "$ref": "https://raw.githubusercontent.com/harshitha090/example-schemas/main/address.json"
-        },
-        "rating": {"type": "number", "minimum": 0.0, "maximum": 5.0}
+        "address": {"$ref": "https://raw.githubusercontent.com/harshitha090/example-schemas/main/common_definitions.json#/properties/address"},
+        "rating": {"type": "number", "minimum": 0.0, "maximum": 5.0},
+        "floatTest": {"$ref": "https://raw.githubusercontent.com/harshitha090/example-schemas/main/common_definitions.json#/properties/float"}
     },
-    "required": ["profile", "address"],
-    "definitions": {
-        "float": {
-            "type": "number",
-            "minimum": 0.0
-        },
-        "age": {
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 150
-        }
-    }
+    "required": ["profile", "address"]
 }
