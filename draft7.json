@@ -6,21 +6,10 @@
         "username": {"type": "string", "minLength": 3, "maxLength": 30},
         "email": {"type": "string", "format": "email"},
         "password": {"type": "string", "minLength": 8},
-        "age": {"$ref": "#/definitions/age"},
-        "score": {"$ref": "#/definitions/float"}
+        "age": {"$ref": "https://raw.githubusercontent.com/harshitha090/example-schemas/main/common_definitions.json#/properties/age"},
+        "score": {"$ref": "https://raw.githubusercontent.com/harshitha090/example-schemas/main/common_definitions.json#/properties/score"},
+        "floatTest": {"$ref": "https://raw.githubusercontent.com/harshitha090/example-schemas/main/common_definitions.json#/properties/float"}
     },
     "required": ["username", "email", "password"],
-    "additionalProperties": false,
-    "definitions": {
-        "age": {
-            "type": "integer",
-            "minimum": 18,
-            "maximum": 99
-        },
-        "float": {
-            "type": "number",
-            "minimum": 0.0,
-            "maximum": 100.0
-        }
-    }
+    "additionalProperties": false
 }
