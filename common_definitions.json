@@ -1,47 +1,32 @@
-{
+common_definitions_schema = {
     "$schema": "http://json-schema.org/draft-07/schema#",
     "$id": "https://raw.githubusercontent.com/harshitha090/example-schemas/main/common_definitions.json",
     "type": "object",
     "properties": {
-        "age": {
-            "type": "integer",
-            "minimum": 0,
-            "maximum":120
-        },
+        "age": {"type": "integer", "minimum": 0,"maximum":120},
         "address": {
             "type": "object",
             "properties": {
-                "street": {
-                    "type": "string"
-                },
-                "city": {
-                    "type": "string"
-                },
-                "state": {
-                    "type": "string"
-                },
-                "postalCode": {
-                    "type": "string"
-                },
-                "country": {
-                    "type": "string"
-                }
+                "street": {"type": "string"},
+                "city": {"type": "string"},
+                "state": {"type": "string"},
+                "postalCode": {"type": "string"},
+                "country": {"type": "string"}
             },
             "required": ["street", "city", "state", "postalCode", "country"]
         },
         "float": {
-    "type": "number",
-    "not":"integer",
-    "exclusiveMinimum": -3.4e38,
-    "exclusiveMaximum": 3.4e38,
-    "pattern": "^-?\\d*\\.\\d+$"
-},
-"double": {
-    "type": "number",
-    "exclusiveMinimum": -1.7e308,
-    "exclusiveMaximum": 1.7e308,
-    "pattern": "^-?\\d*\\.\\d+$"
-},
+            "type": "number",
+            "minimum": -3.4e38,
+            "maximum": 3.4e38,
+            "not": {"type": "integer"}
+        },
+        "double": {
+            "type": "number",
+            "minimum": -1.7e308,
+            "maximum": 1.7e308,
+            "not": {"type": "integer"}
+        },
         "long": {
             "type": "integer",
             "minimum": -9223372036854775808,
@@ -49,4 +34,3 @@
         }
     }
 }
-
