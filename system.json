@@ -1,36 +1,18 @@
 {
-  "$schema": "http://example-network.com/system-defined-schema#",
-  "$id": "http://example-network.com/system-defined/schema",
-  "type": "object",
-  "properties": {
-    "systemName": {
-      "type": "string",
-      "minLength": 1
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://raw.githubusercontent.com/harshitha090/example-schemas/main/system.json",
+    "type": "object",
+    "properties": {
+        "systemName": {"type": "string", "minLength": 1},
+        "systemId": {"type": "integer", "minimum": 1},
+        "loadCapacity": {"$ref": "https://raw.githubusercontent.com/harshitha090/example-schemas/main/common_definitions.json#/properties/float"},
+        "components": {
+            "type": "array",
+            "items": {"type": "string"},
+            "minItems": 1
+        },
+        "efficiency": {"$ref": "https://raw.githubusercontent.com/harshitha090/example-schemas/main/common_definitions.json#/properties/float"}
     },
-    "systemId": {
-      "type": "integer",
-      "minimum": 1
-    },
-    "loadCapacity": {
-      "type": "number",
-      "minimum": 0.1,
-      "maximum": 100.0,
-      "multipleOf": 0.1
-    },
-    "components": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      },
-      "minItems": 1
-    },
-    "efficiency": {
-      "type": "number",
-      "minimum": 0.1,
-      "maximum": 1.0,
-      "multipleOf": 0.01
-    }
-  },
-  "required": ["systemName", "systemId", "loadCapacity"],
-  "additionalProperties": false
+    "required": ["systemName", "systemId", "loadCapacity"],
+    "additionalProperties": false
 }
