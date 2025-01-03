@@ -27,7 +27,13 @@
                     "type": "string"
                 }
             },
-            "required": ["street", "city", "state", "postalCode", "country"]
+            "required": [
+                "street",
+                "city",
+                "state",
+                "postalCode",
+                "country"
+            ]
         },
         "float": {
             "type": "number",
