@@ -6,7 +6,7 @@
         "age": {
             "type": "integer",
             "minimum": 0,
-            "maximum":120
+            "maximum": 120
         },
         "address": {
             "type": "object",
@@ -33,8 +33,7 @@
             "type": "number",
             "minimum": -3.4e38,
             "maximum": 3.4e38,
-            "pattern": "^-?\\d*\\.\\d+$",
-            "multipleOf":0.1
+            "pattern": "^-?\\d*\\.\\d+$"  
         },
         "double": {
             "type": "number",
