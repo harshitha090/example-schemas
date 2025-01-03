@@ -29,23 +29,17 @@
             },
             "required": ["street", "city", "state", "postalCode", "country"]
         },
-        "float": {
-            "type": "number",
-            "minimum": -3.4e38,
-            "maximum": 3.4e38,
-            "not": {
-                "type": "integer"
-            },
-            "pattern": "^-?\\d*\\.\\d+([eE][+-]?\\d+)?$"
-        },
-        "double": {
-            "type": "number",
-            "minimum": -1.7e308,
-            "maximum": 1.7e308,
-            "not": {
-                "type": "integer"
-            },
-            "pattern": "^-?\\d*\\.\\d+([eE][+-]?\\d+)?$"
+       {
+    "float": {
+        "type": "string",
+        "pattern": "^-?\\d+\\.\\d+$"
+    },
+    "double": {
+        "type": "string",
+        "pattern": "^-?\\d+\\.\\d+$"
+    }
+}
+
         },
         "long": {
             "type": "integer",
