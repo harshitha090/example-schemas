@@ -33,19 +33,19 @@
             "type": "number",
             "minimum": -3.4e38,
             "maximum": 3.4e38,
-            "pattern": "^-?\\d*\\.\\d+$",
             "not": {
                 "type": "integer"
-            }
+            },
+            "pattern": "^-?\\d*\\.\\d+$"
         },
         "double": {
             "type": "number",
             "minimum": -1.7e308,
             "maximum": 1.7e308,
-            "pattern": "^-?\\d*\\.\\d+$",
             "not": {
                 "type": "integer"
-            }
+            },
+            "pattern": "^-?\\d*\\.\\d+$"
         },
         "long": {
             "type": "integer",
