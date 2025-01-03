@@ -33,6 +33,8 @@
             "type": "number",
             "minimum": -3.4e38,
             "maximum": 3.4e38,
+            "not"{
+                "type":"integer"},
             "pattern": "^-?\\d*\\.\\d+([eE][+-]?\\d+)?$"  
         },
         "double": {
